@@ -74,6 +74,7 @@ func (c *Cluster) Refresh() error {
 func (c *Cluster) refresh() error {
 	var errMsgs []string
 	fmt.Println("cluster refreshing")
+	fmt.Printf("Redis Connection Pool Stats: %v\n", c.Stats())
 	addrs := c.getNodeAddrs(false)
 	for _, addr := range addrs {
 		m, err := c.getClusterSlots(addr)
@@ -114,7 +115,7 @@ func (c *Cluster) refresh() error {
 			for k, ok := range nodes {
 				if !ok {
 					delete(nodes, k)
-					fmt.Println("cluster refreshing : deleting nodes %v", nodes)
+					fmt.Println("cluster refreshing : deleting nodes", k)
 
 					// close and remove all existing pools for removed nodes
 					if p := c.pools[k]; p != nil {
@@ -129,6 +130,7 @@ func (c *Cluster) refresh() error {
 		c.refreshing = false
 		c.mu.Unlock()
 
+		fmt.Printf("Redis Connection Pool Stats: %v\n", c.Stats())
 		return nil
 	}
 
