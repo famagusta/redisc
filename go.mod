@@ -1,4 +1,4 @@
-module github.com/mna/redisc
+module github.com/famagusta/redisc
 
 go 1.16
 
