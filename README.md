@@ -1,10 +1,10 @@
-# redisc [![Go Reference](https://pkg.go.dev/badge/github.com/mna/redisc.svg)](https://pkg.go.dev/github.com/mna/redisc) [![builds.sr.ht status](https://builds.sr.ht/~mna/redisc.svg)](https://builds.sr.ht/~mna/redisc?)
+# redisc [![Go Reference](https://pkg.go.dev/badge/github.com/famagusta/redisc.svg)](https://pkg.go.dev/github.com/famagusta/redisc) [![builds.sr.ht status](https://builds.sr.ht/~mna/redisc.svg)](https://builds.sr.ht/~mna/redisc?)
 
 Package redisc implements a redis cluster client built on top of the [redigo package][redigo]. See the [documentation][godoc] for details.
 
 ## Installation
 
-    $ go get [-u] [-t] github.com/mna/redisc
+    $ go get [-u] [-t] github.com/famagusta/redisc
 
 ## Releases
 
@@ -74,7 +74,7 @@ There are a number of ways you can support the project:
 The [BSD 3-Clause license][bsd].
 
 [bsd]: http://opensource.org/licenses/BSD-3-Clause
-[godoc]: https://pkg.go.dev/github.com/mna/redisc
+[godoc]: https://pkg.go.dev/github.com/famagusta/redisc
 [redigo]: https://github.com/gomodule/redigo
 [oldredigo]: https://github.com/garyburd/redigo
 [rgc]: https://github.com/chasex/redis-go-cluster

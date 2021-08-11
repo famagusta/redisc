@@ -3,7 +3,7 @@ packages:
   - go
   - redis
 sources:
-  - https://github.com/mna/redisc
+  - https://github.com/famagusta/redisc
 tasks:
   - test: |
       cd redisc
