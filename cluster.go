@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync"
 	"time"
-
+	"fmt"
 	"github.com/gomodule/redigo/redis"
 )
 
@@ -73,7 +73,7 @@ func (c *Cluster) Refresh() error {
 
 func (c *Cluster) refresh() error {
 	var errMsgs []string
-
+	fmt.Println("cluster refreshing")
 	addrs := c.getNodeAddrs(false)
 	for _, addr := range addrs {
 		m, err := c.getClusterSlots(addr)
@@ -100,6 +100,8 @@ func (c *Cluster) refresh() error {
 						target = c.replicas
 					}
 					target[node] = true
+					fmt.Println("cluster refreshing : target node change %v", node)
+	
 				}
 			}
 			for ix := sm.start; ix <= sm.end; ix++ {
@@ -112,6 +114,7 @@ func (c *Cluster) refresh() error {
 			for k, ok := range nodes {
 				if !ok {
 					delete(nodes, k)
+					fmt.Println("cluster refreshing : deleting nodes %v", nodes)
 
 					// close and remove all existing pools for removed nodes
 					if p := c.pools[k]; p != nil {
